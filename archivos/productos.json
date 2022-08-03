@@ -1,1 +1,20 @@
-[]
+[
+	{
+		"title": "Zomo Dry Zahara",
+		"price": 680,
+		"thumbnail": "https://cdn.zomoofficial.com/wp-content/uploads/2020/02/ZOMO_2019_PY_50G_DRY_SAHARA.jpg",
+		"id": 0
+	},
+	{
+		"title": "Zomo Framboera",
+		"price": 600,
+		"thumbnail": "https://cdn.zomoofficial.com/wp-content/uploads/2020/11/ZOMO_2019_PY_50G_FRAMBOERA.png",
+		"id": 1
+	},
+	{
+		"title": "Zomo Cola Mint",
+		"price": 680,
+		"thumbnail": "https://cdn.zomoofficial.com/wp-content/uploads/2020/02/ZOMO_2019_PY_50G_COLA_MINT.jpg",
+		"id": 2
+	}
+]

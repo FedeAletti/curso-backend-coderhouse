@@ -1,4 +1,7 @@
+const express = require("express")
 const fs = require("fs")
+
+const app = express()
 
 class Contenedor {
 	constructor(nombreArchivo) {
@@ -77,16 +80,28 @@ class Contenedor {
 	}
 }
 
-const objetoInicial = {
-	title: "Narguila Blunt Rey",
-	price: 15000,
-	thumbnail:
-		"https://http2.mlstatic.com/D_NQ_NP_736500-MLA47459981465_092021-W.jpg",
-}
+const objetoContenedor = new Contenedor("productos")
 
-const objeto1 = new Contenedor("productos")
-objeto1.getData()
-objeto1.save(objetoInicial)
-objeto1.getById(1).then((data) => console.log(data))
-objeto1.deleteById(1)
-objeto1.deleteAll()
+const PORT = 8080
+
+const server = app.listen(PORT, () => {
+	console.log(`Servidor listening on port ${server.address().port}`)
+})
+
+server.on("error", (error) => console.log(`Error en servidor: ${error}`))
+
+// Traer todos los productos
+app.get("/productos", (req, res) => {
+	objetoContenedor.getAll().then((data) => res.send(data))
+})
+
+// Traer producto random
+app.get("/productoRandom", (req, res) => {
+	objetoContenedor
+		.getAll()
+		.then((arrayProductos) =>
+			objetoContenedor
+				.getById(Math.floor(Math.random() * arrayProductos.length))
+				.then((data) => res.send(data))
+		)
+})
